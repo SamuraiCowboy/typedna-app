@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,10 @@ export class AuthService {
 
   constructor() {}
 
-  login() {
+  login(email: string, password: string) {
+    if(email == 'twnboc' && password == 'twnboc123')
     this._userIsAuthenticated = true;
+    return this._userIsAuthenticated;
   }
 
   logout() {
