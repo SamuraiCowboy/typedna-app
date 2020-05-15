@@ -1,8 +1,8 @@
 {
-  "name": "ionic-angular-course",
+  "name": "TWNBOC-Console",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Faeez Shaikh",
+  "homepage": "https://www.equifax.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -58,5 +58,5 @@
     "tslint": "~5.12.0",
     "typescript": "~3.1.6"
   },
-  "description": "An Ionic project"
+  "description": "Operational Console for TWN Batch on Cloud"
 }
