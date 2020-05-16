@@ -5,10 +5,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private _userIsAuthenticated = false;
+  private _userIsAuthenticated = true;
 
   get userIsAuthenticated() {
     return this._userIsAuthenticated;
+    // return true;
   }
 
   constructor() {}

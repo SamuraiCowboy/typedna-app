@@ -10,11 +10,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content >
+<ion-card>
+
+    <ag-grid-angular
+    style="width: 100%; height: 500px;"
+    class="ag-theme-material"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+    >
+  </ag-grid-angular>
+</ion-card>
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-sm="8" offset-sm="2" text-center>
-        <ion-card>
+        <!-- <ion-card>
           <ion-card-header>
             <ion-card-title>{{ loadedPlaces[0].title }}</ion-card-title>
             <ion-card-subtitle
@@ -40,7 +51,10 @@
               More
             </ion-button>
           </div>
-        </ion-card>
+        </ion-card> -->
+     
+     
+
       </ion-col>
     </ion-row>
     <ion-row>
