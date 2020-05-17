@@ -3,6 +3,7 @@ import { MenuController } from '@ionic/angular';
 
 import { PlacesService } from '../places.service';
 import { Place } from '../place.model';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-discover',
@@ -10,25 +11,25 @@ import { Place } from '../place.model';
   styleUrls: ['./discover.page.scss']
 })
 export class DiscoverPage implements OnInit {
+  private gridApi;
   loadedPlaces: Place[];
 
   columnDefs = [
-    {headerName: 'Job Id', field: 'id', sortable: true, filter: true,checkboxSelection:true},
-    {headerName: 'Job Name', field: 'name', sortable: true, filter: true},
-    {headerName: 'Verifier', field: 'verifier', sortable: true, filter: true},
-    {headerName: 'Start Time', field: 'startTime', sortable: true, filter: true},
-    {headerName: 'Status', field: 'status', sortable: true, filter: true,  cellClass: function(params) {
+    {headerName: 'No', field: 'index', sortable: true, resizable:true, filter: true,checkboxSelection:true,rowDrag: true},
+    {headerName: 'Job Id', field: '_id', sortable: true, resizable:true,filter: true,   enableCellChangeFlash: true},
+    {headerName: 'Job Name', field: 'email', sortable: true, resizable:true,filter: true,   enableCellChangeFlash: true},
+    {headerName: 'Verifier', field: 'verifier', sortable: true, resizable:true,filter: true},
+    {headerName: 'Start Time', field: 'startTime', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
+    {headerName: 'Is Active', field: 'isActive', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
+    {headerName: 'Phone', field: 'phone', sortable: true, resizable:true,filter: true},
+    {headerName: 'Comments', field: 'comments', sortable: true,resizable:true, filter: true},
+    {headerName: 'Status', field: 'color', sortable: true,resizable:true, filter: true,  cellClass: function(params) {
       return params.value === 'Canceled' ? 'rag-green' : 'rag-amber';
     }}
 ];
-  rowData = [
-      { id: '1', name: 'DataFlow', verifier: 'Credit Karma', startTime: '12 Nov 2020 13:59:90' ,status: 'In progress'},
-      { id: '2', name: 'DataFlow', verifier: 'Credit Karma', startTime: '12 Nov 2020 13:59:90' ,status: 'Aborted'},
-      { id: '3', name: 'DataFlow', verifier: 'Credit Karma', startTime: '12 Nov 2020 13:59:90' ,status: 'Canceled'},
-      { id: '4', name: 'DataFlow', verifier: 'Credit Karma', startTime: '12 Nov 2020 13:59:90' ,status: 'Aborted'},
-      { id: '5', name: 'DataFlow', verifier: 'Credit Karma', startTime: '12 Nov 2020 13:59:90' ,status: 'Canceled'},
-  
-  ];
+rowData:any;
+rowDataClicked1 = {};
+themevar;
 
   constructor(
     private placesService: PlacesService,
@@ -36,10 +37,27 @@ export class DiscoverPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loadedPlaces = this.placesService.places;
+   this.rowData = this.placesService.getPlaces();
+   this.themevar = "ag-theme-balham-dark";
+
+  }
+
+  refresh(){
+    this.rowData = this.placesService.getPlaces();
+
+  }
+  changeTheme(){
+    const months = ["ag-theme-balham", "ag-theme-balham-dark", "ag-theme-alpine", "ag-theme-alpine-dark", "ag-theme-material"];
+    const randomTheme = months[Math.floor(Math.random() * months.length)];
+    this.themevar = randomTheme;
+    this.refresh();
   }
 
   onOpenMenu() {
     this.menuCtrl.toggle();
+  }
+
+  onBtnClick1(e) {
+    this.rowDataClicked1 = e.rowData;
   }
 }

@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 
 import { Place } from './place.model';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlacesService {
+
   private _places: Place[] = [
     new Place(
       'p1',
@@ -30,13 +33,16 @@ export class PlacesService {
     )
   ];
 
-  get places() {
-    return [...this._places];
-  }
-
-  constructor() {}
+ 
+  constructor(private http: HttpClient) {}
 
   getPlace(id: string) {
     return {...this._places.find(p => p.id === id)};
   }
+
+  getPlaces() {
+    // return [...this._places];
+    return this.http.get('assets/data.json');
+  }
+
 }
