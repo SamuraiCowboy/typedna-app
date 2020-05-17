@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private _userIsAuthenticated = true;
+  private _userIsAuthenticated = false;
 
   get userIsAuthenticated() {
     return this._userIsAuthenticated;
