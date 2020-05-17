@@ -21,15 +21,27 @@ export class DiscoverPage implements OnInit {
     {headerName: 'Verifier', field: 'verifier', sortable: true, resizable:true,filter: true},
     {headerName: 'Start Time', field: 'startTime', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
     {headerName: 'Is Active', field: 'isActive', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
-    {headerName: 'Phone', field: 'phone', sortable: true, resizable:true,filter: true},
-    {headerName: 'Comments', field: 'comments', sortable: true,resizable:true, filter: true},
-    {headerName: 'Status', field: 'color', sortable: true,resizable:true, filter: true,  cellClass: function(params) {
-      return params.value === 'Canceled' ? 'rag-green' : 'rag-amber';
-    }}
+   {headerName: 'Status', field: 'color', sortable: true,resizable:true, filter: true,   cellStyle: function(params) {
+      if (params.value=='brown') {
+          //mark police cells as red
+          return {color: 'black', backgroundColor: 'rgba(255,128,171,.4)'};
+      } if (params.value=='blue') {
+        //mark police cells as red
+        return {color: 'black', backgroundColor: 'cyan'};
+    } if (params.value=='green') {
+      //mark police cells as red
+      return {color: 'black', backgroundColor: 'rgba(185,246,202,.4)'};
+  } else {
+          return null;
+      }
+  }},
+  {headerName: 'Phone', field: 'phone', sortable: true, resizable:true,filter: true},
+  {headerName: 'Comments', field: 'comments', sortable: true,resizable:true, filter: true}
 ];
 rowData:any;
 rowDataClicked1 = {};
 themevar;
+gridOptions;
 
   constructor(
     private placesService: PlacesService,
@@ -59,5 +71,9 @@ themevar;
 
   onBtnClick1(e) {
     this.rowDataClicked1 = e.rowData;
+  }
+  onGridReady(params: any) {
+    console.log('grid ready');
+    console.log(this.gridOptions.api.getDisplayedRowCount());
   }
 }

@@ -8,8 +8,8 @@ export class AuthService {
   private _userIsAuthenticated = false;
 
   get userIsAuthenticated() {
-    return this._userIsAuthenticated;
-    // return true;
+    // return this._userIsAuthenticated;
+    return true;
   }
 
   constructor() {}
