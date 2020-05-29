@@ -14,7 +14,7 @@ export class OffersPage implements OnInit {
   constructor(private placesService: PlacesService) { }
 
   ngOnInit() {
-    this.offers = this.placesService.places;
+    // this.offers = this.placesService.places;
   }
 
 }
