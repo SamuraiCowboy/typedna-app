@@ -27,19 +27,19 @@ export class DiscoverPage implements OnInit {
     {headerName: 'Start Time', field: 'startTime', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
     {headerName: 'Status', field: 'status', sortable: true,resizable:true, filter: true,   cellStyle: function(params) {
       if (params.value=='Stopped') {
-          //mark police cells as red
+
           return {color: 'black', backgroundColor: 'rgba(255,128,171,.4)'};
       } if (params.value=='Completed') {
-        //mark police cells as red
+
         return {color: 'black', backgroundColor: 'cyan'};
     } if (params.value=='Aborted') {
-      //mark police cells as red
+
       return {color: 'black', backgroundColor: 'rgba(185,246,202,.4)'};
   } if (params.value=='Cancelled') {
-    //mark police cells as red
+
     return {color: 'black', backgroundColor: 'orange'};
 }if (params.value=='Running') {
-  //mark police cells as red
+
   return {color: 'black', backgroundColor:  'rgba(24,228,58,1)'};
 }else {
           return null;
@@ -49,19 +49,19 @@ export class DiscoverPage implements OnInit {
     {headerName: 'Org', field: 'org', sortable: true, resizable:true,filter: true},
     {headerName: 'Sub Status', field: 'subStatus', sortable: true,resizable:true, filter: true,   cellStyle: function(params) {
       if (params.value=='Stopped') {
-          //mark police cells as red
+
           return {color: 'black', backgroundColor: 'rgba(255,128,171,.4)'};
       } if (params.value=='Completed') {
-        //mark police cells as red
+
         return {color: 'black', backgroundColor: 'cyan'};
     } if (params.value=='Aborted') {
-      //mark police cells as red
+
       return {color: 'black', backgroundColor: 'rgba(185,246,202,.4)'};
   } if (params.value=='Cancelled') {
-    //mark police cells as red
+
     return {color: 'black', backgroundColor: 'orange'};
   }if (params.value=='Running') {
-  //mark police cells as red
+
   return {color: 'black', backgroundColor:  'rgba(24,228,58,1)'};
   }else {
           return null;
