@@ -74,6 +74,6 @@ gridOptions;
   }
   onGridReady(params: any) {
     console.log('grid ready');
-    console.log(this.gridOptions.api.getDisplayedRowCount());
+    // console.log(this.gridOptions.api.getDisplayedRowCount());
   }
 }
