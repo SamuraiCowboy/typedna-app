@@ -85,4 +85,8 @@ gridOptions;
     console.log('grid ready');
     // console.log(this.gridOptions.api.getDisplayedRowCount());
   }
+
+  onRowClicked(event: any) { console.log('row', event); }
+  onCellClicked(event: any) { console.log('cell', event); }
+  onSelectionChanged(event: any) { console.log("selection", event); }
 }

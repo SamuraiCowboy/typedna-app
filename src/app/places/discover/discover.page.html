@@ -22,6 +22,9 @@
     [rowDragManaged]="true"
     [pagination]="true"
     paginationPageSize=12
+    (rowClicked)='onRowClicked($event)'
+    (cellClicked)='onCellClicked($event)'
+    (selectionChanged) = 'onSelectionChanged($event)'
     [animateRows]="true"
     >
   </ag-grid-angular>
