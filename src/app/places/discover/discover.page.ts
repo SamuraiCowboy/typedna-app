@@ -3,7 +3,10 @@ import { MenuController } from '@ionic/angular';
 
 import { PlacesService } from '../places.service';
 import { Place } from '../place.model';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+// import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-discover',
@@ -11,6 +14,9 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./discover.page.scss']
 })
 export class DiscoverPage implements OnInit {
+
+  items: Observable<any[]>;
+
   private gridApi;
   loadedPlaces: Place[];
 
@@ -45,17 +51,20 @@ gridOptions;
 
   constructor(
     private placesService: PlacesService,
-    private menuCtrl: MenuController
+    private menuCtrl: MenuController,
+    private firestore: AngularFirestore
   ) {}
 
   ngOnInit() {
-   this.rowData = this.placesService.getPlaces();
+    this.rowData = this.firestore.collection('items').valueChanges();
+  //  this.rowData = this.placesService.getPlaces();
    this.themevar = "ag-theme-balham-dark";
 
   }
 
   refresh(){
-    this.rowData = this.placesService.getPlaces();
+    // this.rowData = this.placesService.getPlaces();
+    this.rowData = this.firestore.collection('items').valueChanges();
 
   }
   changeTheme(){
