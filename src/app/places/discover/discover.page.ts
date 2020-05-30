@@ -22,7 +22,7 @@ export class DiscoverPage implements OnInit {
 
   columnDefs = [
     {headerName: 'No', field: 'index', sortable: true, resizable:true, filter: true,checkboxSelection:true,rowDrag: true,headerCheckboxSelection: true,headerCheckboxSelectionFilteredOnly: true},
-    {headerName: 'Job Id', field: '_id', sortable: true, resizable:true,filter: true,   enableCellChangeFlash: true},
+    {headerName: 'Job Id', field: 'id', sortable: true, resizable:true,filter: true,   enableCellChangeFlash: true},
     {headerName: 'Job Name', field: 'email', sortable: true, resizable:true,filter: true,   enableCellChangeFlash: true},
     {headerName: 'Verifier', field: 'verifier', sortable: true, resizable:true,filter: true},
     {headerName: 'Start Time', field: 'startTime', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
