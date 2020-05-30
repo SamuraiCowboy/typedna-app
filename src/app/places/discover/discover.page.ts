@@ -25,12 +25,7 @@ export class DiscoverPage implements OnInit {
     {headerName: 'User Product Guid', field: 'userProductGuid', sortable: true, resizable:true,filter: true,   enableCellChangeFlash: true},
     {headerName: 'File Name', field: 'fileName', sortable: true, resizable:true,filter: true,   enableCellChangeFlash: true},
     {headerName: 'Start Time', field: 'startTime', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
-    {headerName: 'End Time', field: 'endTime', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
-    {headerName: 'Org', field: 'org', sortable: true, resizable:true,filter: true},
-    {headerName: 'Location', field: 'loc', sortable: true, resizable:true,filter: true},
-    {headerName: 'Total SSNs', field: 'totalSsns', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
-   {headerName: 'Stoppable', field: 'stoppable', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
-   {headerName: 'Status', field: 'status', sortable: true,resizable:true, filter: true,   cellStyle: function(params) {
+    {headerName: 'Status', field: 'status', sortable: true,resizable:true, filter: true,   cellStyle: function(params) {
       if (params.value=='Stopped') {
           //mark police cells as red
           return {color: 'black', backgroundColor: 'rgba(255,128,171,.4)'};
@@ -45,36 +40,43 @@ export class DiscoverPage implements OnInit {
     return {color: 'black', backgroundColor: 'orange'};
 }if (params.value=='Running') {
   //mark police cells as red
-  return {color: 'black', backgroundColor: 'green'};
+  return {color: 'black', backgroundColor:  'rgba(24,228,58,1)'};
 }else {
           return null;
       }
   }},
+    {headerName: 'End Time', field: 'endTime', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
+    {headerName: 'Org', field: 'org', sortable: true, resizable:true,filter: true},
+    {headerName: 'Sub Status', field: 'subStatus', sortable: true,resizable:true, filter: true,   cellStyle: function(params) {
+      if (params.value=='Stopped') {
+          //mark police cells as red
+          return {color: 'black', backgroundColor: 'rgba(255,128,171,.4)'};
+      } if (params.value=='Completed') {
+        //mark police cells as red
+        return {color: 'black', backgroundColor: 'cyan'};
+    } if (params.value=='Aborted') {
+      //mark police cells as red
+      return {color: 'black', backgroundColor: 'rgba(185,246,202,.4)'};
+  } if (params.value=='Cancelled') {
+    //mark police cells as red
+    return {color: 'black', backgroundColor: 'orange'};
+  }if (params.value=='Running') {
+  //mark police cells as red
+  return {color: 'black', backgroundColor:  'rgba(24,228,58,1)'};
+  }else {
+          return null;
+      }
+  }},
+    {headerName: 'Location', field: 'loc', sortable: true, resizable:true,filter: true},
+    {headerName: 'Total SSNs', field: 'totalSsns', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
+   {headerName: 'Stoppable', field: 'stoppable', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
+  
   {headerName: 'Paychex Opted In', field: 'payxOptedIn', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
   {headerName: 'NR Opted In', field: 'nrOptedIn', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
-  {headerName: 'Paychex SSNs', field: 'payxSsns', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
+  {headerName: 'Paychex SSNs', field: 'payxSsns', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true}
   
 
-  {headerName: 'Sub Status', field: 'subStatus', sortable: true,resizable:true, filter: true,   cellStyle: function(params) {
-    if (params.value=='Stopped') {
-        //mark police cells as red
-        return {color: 'black', backgroundColor: 'rgba(255,128,171,.4)'};
-    } if (params.value=='Completed') {
-      //mark police cells as red
-      return {color: 'black', backgroundColor: 'cyan'};
-  } if (params.value=='Aborted') {
-    //mark police cells as red
-    return {color: 'black', backgroundColor: 'rgba(185,246,202,.4)'};
-} if (params.value=='Cancelled') {
-  //mark police cells as red
-  return {color: 'black', backgroundColor: 'orange'};
-}if (params.value=='Running') {
-//mark police cells as red
-return {color: 'black', backgroundColor: 'green'};
-}else {
-        return null;
-    }
-}}
+  
 
 ];
 rowData:any;
