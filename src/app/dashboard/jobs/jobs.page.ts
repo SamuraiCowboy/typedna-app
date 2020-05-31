@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MenuController } from "@ionic/angular";
 import { PlacesService } from "../dashboard.service";
-import { AngularFirestore } from "@angular/fire/firestore";
+
 import { Observable } from "rxjs";
 import { ButtonRendererComponent } from "./button-renderer.component"; //
 
@@ -138,10 +138,6 @@ export class DiscoverPage implements OnInit {
       filter: true,
       enableCellChangeFlash: true,
       cellRendererFramework: ButtonRendererComponent,
-      // cellRendererParams: {
-      //   onClick: this.onBtnClick1.bind(this),
-      //   label: "Stop",
-      // },
     },
 
     {
@@ -177,8 +173,7 @@ export class DiscoverPage implements OnInit {
 
   constructor(
     private placesService: PlacesService,
-    private menuCtrl: MenuController,
-    private firestore: AngularFirestore
+    private menuCtrl: MenuController
   ) {
     this.frameworkComponents = {
       buttonRenderer: ButtonRendererComponent,
