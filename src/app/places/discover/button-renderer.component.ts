@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -16,17 +17,47 @@ export class ButtonRendererComponent implements OnInit {
 
   params;
   data: string;
-  isEnabled:boolean
+  constructor(private alertCtrl: AlertController){
+
+  }
 
   agInit(params): void {
     this.data = params.value;
+    this.params = params;
   }
 
   onClick(e){
-    console.log(e);
+    console.log("Click event: ",e);
+    console.log("Data: ",this.params);
+    this.presentAlertConfirm(this.params.data.org,this.params.data.jenkinsJobId);
     
   }
 
 
 
+
+  async presentAlertConfirm(org,jenkinsId) {
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirm Stop!',
+      message: 'Are you sure you want to stop job for <strong>' + org + '</strong>? Jenkins job : ' + jenkinsId,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 }

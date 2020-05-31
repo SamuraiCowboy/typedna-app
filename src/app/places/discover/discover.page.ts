@@ -3,10 +3,11 @@ import { MenuController } from '@ionic/angular';
 
 import { PlacesService } from '../places.service';
 import { Place } from '../place.model';
-// import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ButtonRendererComponent } from './button-renderer.component';
+
 
 @Component({
   selector: 'app-discover',
@@ -73,8 +74,7 @@ export class DiscoverPage implements OnInit {
    cellRendererFramework: ButtonRendererComponent,
    cellRendererParams: {
      onClick: this.onBtnClick1.bind(this),
-     label: 'Stop',
-     isEnabled: false
+     label: 'Stop'
    }},
   
   {headerName: 'Paychex Opted In', field: 'payxOptedIn', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
@@ -134,12 +134,7 @@ frameworkComponents: any;
   }
   onGridReady(params: any) {
     console.log('grid ready');
-    // console.log(this.gridOptions.api.getDisplayedRowCount());
-    // console.log(this.gridOptions.api); // here it work
-    // this.selectedRows = this.gridOptions.api.getSelectedRows();
-    // console.log(this.selectedRows);
-
-    // this.gridApi = params.api;
+ 
     console.log("Grid api:", params.api);
     console.log("Col api:", params.columnApi);
     this.gridApi = params.api;
@@ -160,4 +155,6 @@ frameworkComponents: any;
     
     return rowData;
   }
+
+  
 }
