@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PlacesPage } from './places.page';
-
+//
 const routes: Routes = [
   {
     path: 'tabs',
@@ -14,11 +14,6 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: './discover/discover.module#DiscoverPageModule'
-          },
-          {
-            path: ':placeId',
-            loadChildren:
-              './discover/place-detail/place-detail.module#PlaceDetailPageModule'
           }
         ]
       },
