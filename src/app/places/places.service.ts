@@ -42,7 +42,7 @@ export class PlacesService {
 
   getPlaces() {
     // return [...this._places];
-    return this.http.get('assets/data.json');
+    return this.http.get('assets/apiData.json');
   }
 
 }

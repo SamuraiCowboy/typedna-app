@@ -20,12 +20,46 @@
     background-color: lightsalmon;
   }
 
-  .btn {
+  .belham-btn {
+    // display:block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid #e2e2e2;
+    background-color: #e2e2e2;
+  }
+
+  .belham-dark-btn {
+    // display:block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid #bdc3c7;    
+    background-color: #bdc3c7;
+    ;
+  }
+  .alpine-btn {
+    // display:block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid #e2e2e2;
+    background-color: #e2e2e2;
+  }
+
+  .alpine-dark-btn {
+    // display:block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid #181d1f;
+    background-color: #181d1f;
+  }
+  .material-btn {
     display:block;
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    border: 1px solid red;
-    color:red;
-    
+    border: 1px solid #e2e2e2;
+    background-color:#e2e2e2;
   }

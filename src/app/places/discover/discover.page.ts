@@ -102,15 +102,15 @@ frameworkComponents: any;
   }
 
   ngOnInit() {
-    this.rowData = this.firestore.collection('jobs').valueChanges();
-  //  this.rowData = this.placesService.getPlaces();
-   this.themevar = "ag-theme-balham-dark";
+    // this.rowData = this.firestore.collection('jobs55').valueChanges();
+   this.rowData = this.placesService.getPlaces();
+   this.themevar = "ag-theme-balham";
 
   }
 
   refresh(){
-    // this.rowData = this.placesService.getPlaces();
-    this.rowData = this.firestore.collection('jobs').valueChanges();
+    this.rowData = this.placesService.getPlaces();
+    // this.rowData = this.firestore.collection('jobs').valueChanges();
 
   }
   changeTheme(){
@@ -118,6 +118,11 @@ frameworkComponents: any;
     const randomTheme = months[Math.floor(Math.random() * months.length)];
     this.themevar = randomTheme;
     this.refresh();
+  }
+
+  changeThemeTo(theme){
+    this.themevar = theme;
+    // this.refresh();
   }
 
   onOpenMenu() {
