@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PlacesPage } from './dashboard.page';
+import { DashboardPage } from './dashboard.page';
 //
 const routes: Routes = [
   {
     path: 'tabs',
-    component: PlacesPage,
+    component: DashboardPage,
     children: [
       {
         path: 'jobs',

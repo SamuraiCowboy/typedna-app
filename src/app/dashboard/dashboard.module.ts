@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PlacesPage } from './dashboard.page';
+import { DashboardPage } from './dashboard.page';
 import { PlacesRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
@@ -12,6 +12,6 @@ import { PlacesRoutingModule } from './dashboard-routing.module';
     IonicModule,
     PlacesRoutingModule
   ],
-  declarations: [PlacesPage]
+  declarations: [DashboardPage]
 })
 export class PlacesPageModule {}
