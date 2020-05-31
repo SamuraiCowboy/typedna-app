@@ -9,7 +9,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 export class PlacesService {
   constructor(private http: HttpClient,private firestore: AngularFirestore) {}
   getJobs() {
-    // return this.firestore.collection('jobsSmall').valueChanges({ idField: 'documentId' });
+    // return this.firestore.collection('jobs19').valueChanges({ idField: 'documentId' });
     return this.http.get('assets/apiData.json');
   }
 
