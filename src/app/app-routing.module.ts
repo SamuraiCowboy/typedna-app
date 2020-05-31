@@ -5,10 +5,10 @@ import { AuthGuard } from './auth/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'places', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
   {
-    path: 'places',
+    path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#PlacesPageModule',
     canLoad: [AuthGuard]
   }

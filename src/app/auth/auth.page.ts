@@ -48,7 +48,7 @@ export class AuthPage implements OnInit {
           if (resp == true) {
             this.isLoading = false;
             loadingEl.dismiss();
-            this.router.navigateByUrl('/places/tabs/discover');
+            this.router.navigateByUrl('/dashboard/tabs/jobs');
           } else {
             loadingEl.dismiss();
             this.showAlert("You are not authorised to use this app. Please contact fxs95 to get access.");
