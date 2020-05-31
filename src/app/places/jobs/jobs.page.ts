@@ -10,9 +10,9 @@ import { ButtonRendererComponent } from './button-renderer.component';
 
 
 @Component({
-  selector: 'app-discover',
-  templateUrl: './discover.page.html',
-  styleUrls: ['./discover.page.scss']
+  selector: 'app-jobs',
+  templateUrl: './jobs.page.html',
+  styleUrls: ['./jobs.page.scss']
 })
 export class DiscoverPage implements OnInit {
 

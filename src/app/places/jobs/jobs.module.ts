@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AgGridModule } from 'ag-grid-angular';
-import { DiscoverPage } from './discover.page';
+import { DiscoverPage } from './jobs.page';
 import { ButtonRendererComponent } from './button-renderer.component';
 
 
