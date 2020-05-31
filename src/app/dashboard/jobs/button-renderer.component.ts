@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ICellRendererAngularComp } from "ag-grid-angular";
 import { AlertController } from "@ionic/angular";
+import { PlacesService } from "../dashboard.service";
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: "app-button-renderer",
@@ -22,7 +24,7 @@ import { AlertController } from "@ionic/angular";
 export class ButtonRendererComponent implements OnInit {
   params;
   data: string;
-  constructor(private alertCtrl: AlertController) {}
+  constructor(private alertCtrl: AlertController,private service:PlacesService,private toastController: ToastController) {}
 
   ngOnInit() {}
   agInit(params): void {
@@ -35,11 +37,12 @@ export class ButtonRendererComponent implements OnInit {
     console.log("Data: ", this.params);
     this.presentAlertConfirm(
       this.params.data.org,
-      this.params.data.jenkinsJobId
+      this.params.data.jenkinsJobId,
+      this.params.data
     );
   }
 
-  async presentAlertConfirm(org, jenkinsId) {
+  async presentAlertConfirm(org, jenkinsId,job) {
     const alert = await this.alertCtrl.create({
       cssClass: "my-custom-class",
       header: "Confirm Stop!",
@@ -61,11 +64,23 @@ export class ButtonRendererComponent implements OnInit {
           text: "Okay",
           handler: () => {
             console.log("Confirm Okay");
+            this.service.updateJob(job);
+            this.presentToast();
+
           },
         },
       ],
     });
 
     await alert.present();
+  }
+
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Job successfully stopped.',
+      duration: 2000
+    });
+    toast.present();
   }
 }

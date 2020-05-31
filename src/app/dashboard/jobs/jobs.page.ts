@@ -181,14 +181,12 @@ export class DiscoverPage implements OnInit {
   }
 
   ngOnInit() {
-    // this.rowData = this.firestore.collection('jobs55').valueChanges();
-    this.rowData = this.placesService.getPlaces();
     this.themevar = "ag-theme-balham";
+    this.refresh();
   }
 
   refresh() {
-    this.rowData = this.placesService.getPlaces();
-    // this.rowData = this.firestore.collection('jobs').valueChanges();
+    this.rowData = this.placesService.getJobs();
   }
 
   changeThemeTo(theme) {

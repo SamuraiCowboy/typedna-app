@@ -8,9 +8,18 @@ import { AngularFirestore } from "@angular/fire/firestore";
 })
 export class PlacesService {
   constructor(private http: HttpClient,private firestore: AngularFirestore) {}
-  getPlaces() {
-    return this.firestore.collection('jobsSmall').valueChanges();
+  getJobs() {
+    return this.firestore.collection('jobsSmall').valueChanges({ idField: 'documentId' });
     // return this.http.get('assets/apiData.json');
+  }
+
+  updateJob(job){
+    console.log("Job :" , job);
+    this.firestore.doc(`jobsSmall/${job.documentId}`).update({
+      status : 'Stopped',
+      subStatus : 'Stopped',
+      stoppable: false
+    })
   }
 
 }
