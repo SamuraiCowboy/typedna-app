@@ -83,13 +83,6 @@ export class JobsPage implements OnInit {
       enableCellChangeFlash: true,
     },
     {
-      headerName: "Org",
-      field: "org",
-      sortable: true,
-      resizable: true,
-      filter: true,
-    },
-    {
       headerName: "Sub Status",
       field: "subStatus",
       sortable: true,
@@ -113,8 +106,25 @@ export class JobsPage implements OnInit {
         } else {
           return null;
         }
-      },
+      }
     },
+    {
+      headerName: "Stoppable",
+      field: "stoppable",
+      sortable: true,
+      resizable: true,
+      filter: true,
+      enableCellChangeFlash: true,
+      cellRendererFramework: ButtonRendererComponent,
+    },
+    {
+      headerName: "Org",
+      field: "org",
+      sortable: true,
+      resizable: true,
+      filter: true,
+    },
+    
     {
       headerName: "Location",
       field: "loc",
@@ -130,16 +140,7 @@ export class JobsPage implements OnInit {
       filter: true,
       enableCellChangeFlash: true,
     },
-    {
-      headerName: "Stoppable",
-      field: "stoppable",
-      sortable: true,
-      resizable: true,
-      filter: true,
-      enableCellChangeFlash: true,
-      cellRendererFramework: ButtonRendererComponent,
-    },
-
+  
     {
       headerName: "Paychex Opted In",
       field: "payxOptedIn",
