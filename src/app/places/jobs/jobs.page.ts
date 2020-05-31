@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
 import { PlacesService } from '../places.service';
-import { Place } from '../place.model';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
