@@ -10,7 +10,7 @@ import { ButtonRendererComponent } from "./button-renderer.component"; //
   templateUrl: "./jobs.page.html",
   styleUrls: ["./jobs.page.scss"],
 })
-export class DiscoverPage implements OnInit {
+export class JobsPage implements OnInit {
   items: Observable<any[]>;
 
   private gridApi;

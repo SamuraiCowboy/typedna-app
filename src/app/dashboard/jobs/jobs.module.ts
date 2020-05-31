@@ -6,14 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AgGridModule } from 'ag-grid-angular';
-import { DiscoverPage } from './jobs.page';
+import { JobsPage } from './jobs.page';
 import { ButtonRendererComponent } from './button-renderer.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: DiscoverPage
+    component: JobsPage
   }
 ];
 
@@ -25,6 +25,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     AgGridModule.withComponents([])
   ],
-  declarations: [DiscoverPage,ButtonRendererComponent]
+  declarations: [JobsPage,ButtonRendererComponent]
 })
-export class DiscoverPageModule {}
+export class JobsPageModule {}

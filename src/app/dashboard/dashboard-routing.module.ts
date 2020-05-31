@@ -13,7 +13,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: './jobs/jobs.module#DiscoverPageModule'
+            loadChildren: './jobs/jobs.module#JobsPageModule'
           }
         ]
       },
