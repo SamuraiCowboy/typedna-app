@@ -21,6 +21,9 @@ export class ButtonRendererComponent implements OnInit {
 
   }
 
+  ngOnInit(){
+    
+  }
   agInit(params): void {
     this.data = params.value;
     this.params = params;
