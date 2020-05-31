@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PlacesService } from '../places.service';
+import { PlacesService } from '../dashboard.service';
 
 @Component({
   selector: 'app-alert',
@@ -8,7 +8,7 @@ import { PlacesService } from '../places.service';
   styleUrls: ['./alert.page.scss'],
 })
 export class OffersPage implements OnInit {
-  offers: Place[];
+
 
   constructor(private placesService: PlacesService) { }
 

@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
   {
     path: 'places',
-    loadChildren: './places/places.module#PlacesPageModule',
+    loadChildren: './places/dashboard.module#PlacesPageModule',
     canLoad: [AuthGuard]
   }
 ];

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
-import { PlacesService } from '../places.service';
+import { PlacesService } from '../dashboard.service';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { ButtonRendererComponent } from './button-renderer.component';
-
+import { ButtonRendererComponent } from './button-renderer.component';//
 
 @Component({
   selector: 'app-jobs',
@@ -18,7 +17,7 @@ export class DiscoverPage implements OnInit {
   items: Observable<any[]>;
 
   private gridApi;
-  loadedPlaces: Place[];
+
 
   columnDefs = [
     {headerName: 'Jenkins Job Id', field: 'jenkinsJobId', sortable: true, resizable:true, filter: true,rowDrag: true,},
