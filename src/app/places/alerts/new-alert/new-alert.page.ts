@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-new-offer',
-  templateUrl: './new-offer.page.html',
-  styleUrls: ['./new-offer.page.scss'],
+  selector: 'app-new-alert',
+  templateUrl: './new-alert.page.html',
+  styleUrls: ['./new-alert.page.scss'],
 })
 export class NewOfferPage implements OnInit {
 

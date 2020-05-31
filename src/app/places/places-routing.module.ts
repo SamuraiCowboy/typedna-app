@@ -22,12 +22,12 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: './offers/offers.module#OffersPageModule'
+            loadChildren: './alerts/alert.module#OffersPageModule'
           },
           {
             path: 'new',
             loadChildren:
-              './offers/new-offer/new-offer.module#NewOfferPageModule'
+              './alerts/new-alert/new-alert.module#NewOfferPageModule'
           }
         ]
       },
