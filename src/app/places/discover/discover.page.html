@@ -26,11 +26,15 @@
     (cellClicked)='onCellClicked($event)'
     (selectionChanged) = 'onSelectionChanged($event)'
     [animateRows]="true"
+    (gridReady)="onGridReady($event)"
+    rowHeight = 50
+    [enableCellChangeFlash]="true"
     >
   </ag-grid-angular>
 
   <ion-button shape="round" (click)="refresh()"> </ion-button>
   <ion-button (click)="changeTheme()"> Randomize Theme</ion-button>
+  <ion-button (click)="confirmStop()"> Stop</ion-button>
   <a class="btn" href="#"><i class="ion-ios-arrow-down"></i></a>
 
 </ion-card>

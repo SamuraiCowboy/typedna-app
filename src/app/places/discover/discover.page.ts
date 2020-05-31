@@ -6,7 +6,7 @@ import { Place } from '../place.model';
 // import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-
+import { ButtonRendererComponent } from './button-renderer.component';
 
 @Component({
   selector: 'app-discover',
@@ -21,7 +21,7 @@ export class DiscoverPage implements OnInit {
   loadedPlaces: Place[];
 
   columnDefs = [
-    {headerName: 'Jenkins Job Id', field: 'jenkinsJobId', sortable: true, resizable:true, filter: true,checkboxSelection:true,rowDrag: true,headerCheckboxSelection: true,headerCheckboxSelectionFilteredOnly: true},
+    {headerName: 'Jenkins Job Id', field: 'jenkinsJobId', sortable: true, resizable:true, filter: true,rowDrag: true,},
     {headerName: 'User Product Guid', field: 'userProductGuid', sortable: true, resizable:true,filter: true,   enableCellChangeFlash: true},
     {headerName: 'File Name', field: 'fileName', sortable: true, resizable:true,filter: true,   enableCellChangeFlash: true},
     {headerName: 'Start Time', field: 'startTime', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
@@ -69,7 +69,13 @@ export class DiscoverPage implements OnInit {
   }},
     {headerName: 'Location', field: 'loc', sortable: true, resizable:true,filter: true},
     {headerName: 'Total SSNs', field: 'totalSsns', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
-   {headerName: 'Stoppable', field: 'stoppable', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
+   {headerName: 'Stoppable', field:'stoppable',sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true,
+   cellRendererFramework: ButtonRendererComponent,
+   cellRendererParams: {
+     onClick: this.onBtnClick1.bind(this),
+     label: 'Stop',
+     isEnabled: false
+   }},
   
   {headerName: 'Paychex Opted In', field: 'payxOptedIn', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
   {headerName: 'NR Opted In', field: 'nrOptedIn', sortable: true,resizable:true, filter: true,   enableCellChangeFlash: true},
@@ -83,12 +89,17 @@ rowData:any;
 rowDataClicked1 = {};
 themevar;
 gridOptions;
+frameworkComponents: any;
 
   constructor(
     private placesService: PlacesService,
     private menuCtrl: MenuController,
     private firestore: AngularFirestore
-  ) {}
+  ) {
+    this.frameworkComponents = {
+      buttonRenderer: ButtonRendererComponent,
+    }
+  }
 
   ngOnInit() {
     this.rowData = this.firestore.collection('jobs').valueChanges();
@@ -119,9 +130,29 @@ gridOptions;
   onGridReady(params: any) {
     console.log('grid ready');
     // console.log(this.gridOptions.api.getDisplayedRowCount());
+    // console.log(this.gridOptions.api); // here it work
+    // this.selectedRows = this.gridOptions.api.getSelectedRows();
+    // console.log(this.selectedRows);
+
+    // this.gridApi = params.api;
+    console.log("Grid api:", params.api);
+    console.log("Col api:", params.columnApi);
+    this.gridApi = params.api;
+    
+    
   }
+
+
 
   onRowClicked(event: any) { console.log('row', event); }
   onCellClicked(event: any) { console.log('cell', event); }
   onSelectionChanged(event: any) { console.log("selection", event); }
+
+  confirmStop(){
+    let rowData = [];
+    this.gridApi.forEachNode(node => rowData.push(node.data));
+    console.log("rows:",rowData);
+    
+    return rowData;
+  }
 }

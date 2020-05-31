@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { AgGridModule } from 'ag-grid-angular';
 import { DiscoverPage } from './discover.page';
+import { ButtonRendererComponent } from './button-renderer.component';
+
 
 const routes: Routes = [
   {
@@ -23,6 +25,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     AgGridModule.withComponents([])
   ],
-  declarations: [DiscoverPage]
+  declarations: [DiscoverPage,ButtonRendererComponent]
 })
 export class DiscoverPageModule {}
