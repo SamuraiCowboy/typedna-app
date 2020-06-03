@@ -14,13 +14,13 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 // AngularFire Settings
 export const firebaseConfig = {
-  apiKey: "AIzaSyD8uljhUyWdRyZDEc35xl-YS8CqkrtkUtM",
-    authDomain: "twnboc-console.firebaseapp.com",
-    databaseURL: "https://twnboc-console.firebaseio.com",
-    projectId: "twnboc-console",
-    storageBucket: "twnboc-console.appspot.com",
-    messagingSenderId: "710561007571",
-    appId: "1:710561007571:web:1e80e59d9cd04a8a745126"
+  apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
 };
 
 @NgModule({
